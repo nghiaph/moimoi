@@ -1,0 +1,179 @@
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url('/static/images/html/login_background.jpg') no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+div {
+    display: flex;
+    position: relative;
+    top: 35%;
+}
+
+form {
+    margin: 0 auto;
+    left: 40%;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+h2 {
+    color: #887e7e;
+    margin-left: 97px;
+    font-family: Arial;
+}
+
+input {
+    padding: 5px 12px;
+    margin: 25px;
+    font-size: 17px;
+    display: block;
+    background: white none;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+#btnSubmit {
+    margin: 25px;
+    padding: 8px 90px;
+    border: none;
+    background-color: #7e57c2;
+    text-align: center;
+    color: White;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+}
+
+#btnSubmit:hover {
+    margin: 25px;
+    padding: 8px 90px;
+    border: none;
+    background-color: #7e57c2;
+    text-align: center;
+    color: White;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/* Toast */
+
+#toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    top: 550px;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast #err_head{
+	height: 50px;
+    float: left;
+    padding: 16px;
+    top: 0;
+    box-sizing: border-box;
+    display: block;
+    background-color: #9d0006;
+    color: #fff;
+}
+#toast #err_msg{
+    top: 0;
+    color: #fff;
+    padding: 16px;
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+    -webkit-animation: show, fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s, hide 5s;
+    animation: show, fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s, hide 5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;}
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;}
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
+@-webkit-keyframes show {
+    from {visibility: hidden;}
+    to {visibility: visible;}
+}
+
+@keyframes show {
+    from {visibility: hidden;}
+    to {visibility: visible;}
+}
+
+@-webkit-keyframes hide {
+    from {visibility: visible;}
+    to {visibility: hidden;}
+}
+
+@keyframes hide {
+    from {visibility: visible;}
+    to {visibility: hidden;}
+}

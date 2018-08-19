@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <form name="credentials" action="{{ url_for('.user_authen') }}" method="post">
+            <h2>Login</h2>
+            <input placeholder="Username" type="text" id="inputUsername" name="username" value="">
+            <input placeholder="Password" type="password" id="inputPass" name="password" value="">
+            <button type="submit" style="display: block;" id="btnSubmit">Submit</button>
+        </form>
+    </div>
+    {% for err_msg in get_flashed_messages() %}
+        <div id="toast" class="show" >
+            <div id="err_head">!Error</div>
+            <div id="err_msg">{{ err_msg }}</div>
+        </div>
+    {% endfor %}
+</body>
+</html>
