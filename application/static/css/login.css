@@ -43,7 +43,7 @@ input {
 
 #btnSubmit {
     margin: 25px;
-    padding: 8px 90px;
+    padding: 8px 100px;
     border: none;
     background-color: #7e57c2;
     text-align: center;
@@ -55,7 +55,7 @@ input {
 
 #btnSubmit:hover {
     margin: 25px;
-    padding: 8px 90px;
+    padding: 8px 100px;
     border: none;
     background-color: #7e57c2;
     text-align: center;

@@ -4,7 +4,7 @@ This script runs the provisionWebapp application using a development server.
 
 from os import environ
 from application import app
-from application.pref.pref_vars import HOST, PORT
+from application.pref.pref_static_vars import HOST, PORT
 
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', HOST)

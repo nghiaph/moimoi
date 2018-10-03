@@ -2,9 +2,10 @@ from application.mongodb.mongo_connect import mongo
 """
     User level privileged:
         - 0: Developer
-        - 1: Admin
-        - 2: Cisco user
-        - 3: Guest user
+        - 1: Mighty Admin
+        - 2: Admin
+        - 3: Cisco user
+        - 4: Guest user
 """
 
 class User:
@@ -13,3 +14,4 @@ class User:
         self.username = temp_user['username']
         self.password = temp_user['password']
         self.privilege = temp_user['privilege']
+        self.group_id = temp_user['group_id']

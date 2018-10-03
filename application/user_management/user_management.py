@@ -14,7 +14,8 @@ from application.pref.pref_mess import UM_LOGIN_ERR, UM_REG_SUCC, UM_REG_ERR, \
 class AccountMgmt:
     # Authentication part
     def authen(self, username, password):
-        if mongo.db.user.find_one({"username": username}) is not None and mongo.db.user.find_one({"password": password}) is not None:
+        if mongo.db.user.find_one({"username": username}) is not None \
+        and mongo.db.user.find_one({"password": password}) is not None:
             return True
         else:
             return UM_LOGIN_ERR
@@ -50,3 +51,7 @@ class AccountMgmt:
             return UM_RM_USER_SUCC
         else:
             return UM_RM_USER_ERR
+
+    def get_privilege(self, username):
+        for user in mongo.db.user.find({'username': username}):
+            return user['privilege']

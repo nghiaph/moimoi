@@ -1,6 +1,14 @@
+# Importing Flask package
 from flask import render_template, request, flash
-#from flask_login import login_required, current_user
+
+# Import preference variables
 from application import app
+from application.pref import pref_static_vars, pref_objects
+
+# Importing models
+from application.model.user import User
+
+# Importing management functions
 from application.user_management.user_management import AccountMgmt
 
 
@@ -12,16 +20,20 @@ def index():
 
 
 @app.route('/home', methods=["POST"])
-#@login_required
 def user_authen():
     username = request.form['username']
     password = request.form['password']
-#    current_user = User(username)
-    user = AccountMgmt()
-    if user.authen(username, password) is True:
-        return render_template('home.html', username=username)
+    pref_objects.current_user = User(username)
+    mgmt = AccountMgmt()
+    if mgmt.authen(username, password) is True:
+        if 0 < pref_objects.current_user.privilege <= 2:
+            return render_template('home_admin.html', username=username)
+        elif pref_objects.current_user.privilege > 2:
+            return render_template('home_user.html', username=username)
+        else:
+            return render_template('home_dev.html', username=username)
     else:
-        flash(user.authen(username, password))
+        flash(mgmt.authen(username, password))
         return render_template('login.html')
 
 
@@ -53,3 +65,7 @@ def add_device():
 def rm_device():
     pass
 
+
+@app.route('/show_list_user', methods=["POST"])
+def show_list_user():
+    pass
